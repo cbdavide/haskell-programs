@@ -1,0 +1,41 @@
+	Wed Oct  5 20:14 2022 Time and Allocation Profiling Report  (Final)
+
+	   haskell_ch_28 +RTS -P -RTS
+
+	total time  =      216.66 secs   (216663 ticks @ 1000 us, 1 processor)
+	total alloc = 660,056,034,032 bytes  (excludes profiling overheads)
+
+COST CENTRE    MODULE                SRC                                                    %time %alloc  ticks     bytes
+
+main           Main                  haskell_ch_28.hs:(53,1)-(56,52)                         63.7   64.6  138048 426176630616
+dictWords      Main                  haskell_ch_28.hs:44:1-48                                21.4   30.3  46439 199876880128
+readTextDevice Data.Text.Internal.IO libraries/text/src/Data/Text/Internal/IO.hs:133:39-64    9.3    0.3  20054 1994216000
+dictWordsT     Main                  haskell_ch_28.hs:47:1-49                                 3.2    3.2   6844 20861608016
+dictWordsTL    Main                  haskell_ch_28.hs:50:1-51                                 2.4    1.7   5278 11146534000
+
+
+                                                                                                                   individual      inherited
+COST CENTRE       MODULE                  SRC                                                   no.     entries  %time %alloc   %time %alloc  ticks     bytes
+
+MAIN              MAIN                    <built-in>                                            197           0    0.0    0.0   100.0  100.0      0    124152
+ CAF              Main                    <entire-module>                                       393           0    0.0    0.0     0.0    0.0      0      1576
+  dictWords       Main                    haskell_ch_28.hs:44:1-48                              396           1    0.0    0.0     0.0    0.0      0         0
+  dictWordsT      Main                    haskell_ch_28.hs:47:1-49                              398           1    0.0    0.0     0.0    0.0      0         0
+  dictWordsTL     Main                    haskell_ch_28.hs:50:1-51                              401           1    0.0    0.0     0.0    0.0      0         0
+  main            Main                    haskell_ch_28.hs:(53,1)-(56,52)                       394           1    0.0    0.0     0.0    0.0      0         0
+ CAF              Data.Text.IO            <entire-module>                                       392           0    0.0    0.0     0.0    0.0      0        48
+ CAF              Data.Text.Array         <entire-module>                                       386           0    0.0    0.0     0.0    0.0      0        32
+ CAF              GHC.Conc.Signal         <entire-module>                                       311           0    0.0    0.0     0.0    0.0      0       656
+ CAF              GHC.IO.Encoding         <entire-module>                                       293           0    0.0    0.0     0.0    0.0      0      3184
+ CAF              GHC.IO.Encoding.Iconv   <entire-module>                                       291           0    0.0    0.0     0.0    0.0      0       200
+ CAF              GHC.IO.Exception        <entire-module>                                       285           0    0.0    0.0     0.0    0.0      0       640
+ CAF              GHC.IO.Handle.FD        <entire-module>                                       283           0    0.0    0.0     0.0    0.0      0     34672
+ CAF              GHC.IO.Handle.Internals <entire-module>                                       282           0    0.0    0.0     0.0    0.0      0        24
+ CAF              GHC.IO.Handle.Text      <entire-module>                                       281           0    0.0    0.0     0.0    0.0      0        72
+ CAF              GHC.IO.FD               <entire-module>                                       222           0    0.0    0.0     0.0    0.0      0        16
+ main             Main                    haskell_ch_28.hs:(53,1)-(56,52)                       395           0   63.7   64.6   100.0  100.0  138048 426176630616
+  dictWords       Main                    haskell_ch_28.hs:44:1-48                              397           0   21.4   30.3    21.4   30.3  46439 199876880128
+  dictWordsT      Main                    haskell_ch_28.hs:47:1-49                              399           0    3.2    3.2     7.8    3.3   6844 20861608016
+   readTextDevice Data.Text.Internal.IO   libraries/text/src/Data/Text/Internal/IO.hs:133:39-64 400     2420000    4.7    0.2     4.7    0.2  10105 996952000
+  dictWordsTL     Main                    haskell_ch_28.hs:50:1-51                              402           0    2.4    1.7     7.0    1.8   5278 11146534000
+   readTextDevice Data.Text.Internal.IO   libraries/text/src/Data/Text/Internal/IO.hs:133:39-64 403     2420000    4.6    0.2     4.6    0.2   9949 997264000

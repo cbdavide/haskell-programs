@@ -1,0 +1,143 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.34.6.
+--
+-- see: https://github.com/sol/hpack
+
+name:           fingerd
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/cbdavide/fingerd#readme>
+homepage:       https://github.com/cbdavide/fingerd#readme
+bug-reports:    https://github.com/cbdavide/fingerd/issues
+author:         David Castelblanco Benavides
+maintainer:     dbdavides@gmail.com
+copyright:      2022 David Castelblanco Benavides
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    CHANGELOG.md
+
+source-repository head
+  type: git
+  location: https://github.com/cbdavide/fingerd
+
+library
+  exposed-modules:
+      App
+      Database
+      DatabaseDebug
+      Debug
+      Exceptions
+      Lib
+      Types
+  other-modules:
+      Paths_fingerd
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      async
+    , base >=4.7 && <5
+    , bytestring
+    , mtl
+    , network
+    , raw-strings-qq
+    , say
+    , sqlite-simple
+    , text
+  default-language: Haskell2010
+
+executable database-debug-exe
+  main-is: DatabaseDebug.hs
+  other-modules:
+      App
+      Database
+      Debug
+      Exceptions
+      Lib
+      Types
+      Paths_fingerd
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N -main-is DatabaseDebug
+  build-depends:
+      async
+    , base >=4.7 && <5
+    , bytestring
+    , fingerd
+    , mtl
+    , network
+    , raw-strings-qq
+    , say
+    , sqlite-simple
+    , text
+  default-language: Haskell2010
+
+executable debug-exe
+  main-is: Debug.hs
+  other-modules:
+      App
+      Database
+      DatabaseDebug
+      Exceptions
+      Lib
+      Types
+      Paths_fingerd
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N -main-is Debug
+  build-depends:
+      async
+    , base >=4.7 && <5
+    , bytestring
+    , fingerd
+    , mtl
+    , network
+    , raw-strings-qq
+    , say
+    , sqlite-simple
+    , text
+  default-language: Haskell2010
+
+executable fingerd-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_fingerd
+  hs-source-dirs:
+      app
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      async
+    , base >=4.7 && <5
+    , bytestring
+    , fingerd
+    , mtl
+    , network
+    , raw-strings-qq
+    , say
+    , sqlite-simple
+    , text
+  default-language: Haskell2010
+
+test-suite fingerd-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_fingerd
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      async
+    , base >=4.7 && <5
+    , bytestring
+    , fingerd
+    , mtl
+    , network
+    , raw-strings-qq
+    , say
+    , sqlite-simple
+    , text
+  default-language: Haskell2010
