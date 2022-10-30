@@ -1,4 +1,4 @@
 *.hi
 *.o
-dist-newstyle/*
-.stack-work/*
+**/dist-newstyle/
+**/.stack-work/
